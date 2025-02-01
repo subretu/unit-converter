@@ -39,6 +39,7 @@ jobs:
 
       - name: Test
         run: poetry run pytest tests/ -vv --junitxml=pytest-${{ matrix.python-version }}.xml --cov-report=term-missing:skip-covered --cov=unic | tee pytest-${{ matrix.python-version }}-coverage.txt
+        continue-on-error: false
 
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
